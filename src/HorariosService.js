@@ -21,6 +21,7 @@ export class HorariosService {
     }
 }
 
+// Simulação do retorno da conexão com um servidor remoto.
 function getDados() {
     return [
         {
