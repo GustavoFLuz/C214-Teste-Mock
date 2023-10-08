@@ -13,7 +13,10 @@ export class Horarios {
     }
 
     formatarElementoTabela(horario) {
-        return `
+        if(isNaN(horario.sala) || horario.sala <=0)
+            return ``
+        else{
+            return `
         <tr>
             <td>${this.primeiraLetraMaiuscula(horario.nomeDoProfessor)}</td>
             <td>${horario.horarioDeAtendimento}</td>
@@ -22,6 +25,7 @@ export class Horarios {
             <td>${horario.predio}</td>
         </tr>
         `
+        }
     }
 
     render(element) {

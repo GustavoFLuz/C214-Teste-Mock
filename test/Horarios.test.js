@@ -51,7 +51,6 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: 14,
-                predio: ['1', '2', '3', '4', '5'],
             });
             const expected = `
             <tr>
@@ -65,5 +64,41 @@ describe('Horarios', () => {
 
             expect(horarios.formatarElementoTabela(horario).replace(/\s/g, '')).toEqual(expected.replace(/\s/g, ''));
         });
-    });
-});
+
+        it('should not crate any HTML table row if sala is Not a number', () => {
+            const horario = new HorariosModel({
+                nomeDoProfessor: 'Bruno',
+                horarioDeAtendimento: '10:30',
+                periodo: 'integral',
+                sala: "sabgs",
+            });
+            const expected = '';
+
+            expect(horarios.formatarElementoTabela(horario)).toEqual(expected);
+        });
+
+        it('should not crate any HTML table row if sala is less than 0', () => {
+            const horario = new HorariosModel({
+                nomeDoProfessor: 'Bruno',
+                horarioDeAtendimento: '10:30',
+                periodo: 'integral',
+                sala: 0,
+            });
+            const expected = '';
+
+            expect(horarios.formatarElementoTabela(horario)).toEqual(expected);
+        });
+
+        it('should not crate any HTML table row if name is undefined', () => {
+            const horario = new HorariosModel({
+                nomeDoProfessor: undefined,
+                horarioDeAtendimento: '10:30',
+                periodo: 'integral',
+                sala: 0,
+            });
+            const expected = '';
+
+            expect(horarios.formatarElementoTabela(horario)).toEqual(expected);
+        });
+    })
+})
