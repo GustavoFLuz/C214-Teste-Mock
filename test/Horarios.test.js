@@ -1,15 +1,12 @@
-import { Horarios } from '../src/Horarios.js';
-import { HorariosModel } from '../src/HorariosModel.js';
-import { describe, beforeEach, it, expect, toEqual } from 'vitest';
-
+import {Horarios} from '../src/Horarios.js';
+import {HorariosModel} from '../src/HorariosModel.js';
+import {describe, beforeEach, it, expect} from 'vitest';
 
 describe('Horarios', () => {
     let horarios;
-
     beforeEach(() => {
         horarios = new Horarios();
     });
-
     describe('setHorarios', () => {
         it('Deve definir o array the horarios', () => {
             const mockHorarios = [
@@ -34,7 +31,6 @@ describe('Horarios', () => {
             expect(horarios.horarios).toEqual(mockHorarios);
         });
     });
-
     describe('primeiraLetraMaiuscula', () => {
         it('A primeira letra deve ficar maiúscula', () => {
             const str = 'joão da silva';
@@ -43,7 +39,6 @@ describe('Horarios', () => {
             expect(horarios.primeiraLetraMaiuscula(str)).toEqual(expected);
         });
     });
-
     describe('formatarElementoTabela', () => {
         it('should format a horario object into an HTML table row', () => {
             const horario = new HorariosModel({
@@ -72,8 +67,8 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: "sabgs",
-                predio : ["1", "2", "3", "4", "5", "6"],
-                
+                predio: ["1", "2", "3", "4", "5", "6"],
+
             });
             const expected = '';
 
@@ -86,7 +81,7 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: 0,
-                predio : ["1", "2", "3", "4", "5", "6"],
+                predio: ["1", "2", "3", "4", "5", "6"],
             });
             const expected = '';
 
@@ -99,7 +94,7 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: 0,
-                predio : ["1", "2", "3", "4", "5", "6"],
+                predio: ["1", "2", "3", "4", "5", "6"],
             });
             const expected = '';
 

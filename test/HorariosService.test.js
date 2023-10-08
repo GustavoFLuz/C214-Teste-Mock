@@ -2,7 +2,6 @@ import {describe, expect, it, test} from "vitest";
 import {HorariosService} from "./mock/HorariosServiceMock.js";
 
 describe('HorariosService Test', () => {
-
     it('buscaPorNome Test', async () => {
         const dados = JSON.stringify([{
             "nomeDoProfessor": "chris",
@@ -21,7 +20,6 @@ describe('HorariosService Test', () => {
         const result = await service.buscaPorNome('chris')
         expect(result).toEqual(dados)
     });
-
     it.fails('return wrong professor data', async () => {
         const dados = JSON.stringify([
             {
@@ -57,22 +55,18 @@ describe('HorariosService Test', () => {
         const result = await service.buscaPorNome('chris')
         expect(result).toContain(dados)
     });
-
     it('non-existent professor test', async () => {
         const service = new HorariosService()
         expect(service.buscaPorNome('Edras')).rejects.toEqual('Professor não cadastrado')
     });
-
     it('no name provided test', async () => {
         const service = new HorariosService()
         expect(service.buscaPorNome('')).rejects.toEqual('Professor não cadastrado')
     });
-
     it('provided null test', async () => {
         const service = new HorariosService()
         expect(service.buscaPorNome(null)).rejects.toEqual('Professor não cadastrado')
     });
-
     it('buscaTodos Test', async () => {
         const dados = JSON.stringify([{
             nomeDoProfessor: "chris",
@@ -115,5 +109,4 @@ describe('HorariosService Test', () => {
         const result = await service.buscaTodos()
         expect(result).toEqual(dados)
     });
-
 });
