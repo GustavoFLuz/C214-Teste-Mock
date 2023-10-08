@@ -51,6 +51,7 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: 14,
+                predio: ["1", "2", "3", "4", "5", "6"],
             });
             const expected = `
             <tr>
@@ -71,6 +72,8 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: "sabgs",
+                predio : ["1", "2", "3", "4", "5", "6"],
+                
             });
             const expected = '';
 
@@ -83,6 +86,7 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: 0,
+                predio : ["1", "2", "3", "4", "5", "6"],
             });
             const expected = '';
 
@@ -95,6 +99,7 @@ describe('Horarios', () => {
                 horarioDeAtendimento: '10:30',
                 periodo: 'integral',
                 sala: 0,
+                predio : ["1", "2", "3", "4", "5", "6"],
             });
             const expected = '';
 
