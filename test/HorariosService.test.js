@@ -24,6 +24,15 @@ describe('HorariosService Test', () => {
         ))
     });
 
+    it('non-existent professor test', async () => {
+        const service = new HorariosService()
+        try {
+            const result = await service.buscaPorNome('Edras')
+        } catch (error) {
+            expect(error).toEqual('Professor não cadastrado')
+        }
+    });
+
     it('buscaTodos Test', async () => {
         const service = new HorariosService()
         const result = await service.buscaTodos()
